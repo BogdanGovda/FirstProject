@@ -1,5 +1,5 @@
 export const environment = {
-  firebase: {
+    firebase: {
     projectId:"shop-9c4dd",
     appId:"1:760946398174:web:d6065358b2ce4838c0c34f",
     storageBucket:"shop-9c4dd.appspot.com",
@@ -8,5 +8,5 @@ export const environment = {
     messagingSenderId:"760946398174"
 },
     production: true,
-    BACKEND_URL: 'http://localhost:3000'
+    BACKEND_URL: 'http://localhost:4200'
   };

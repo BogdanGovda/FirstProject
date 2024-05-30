@@ -12,5 +12,5 @@ export const environment = {
     messagingSenderId:"760946398174"
 },
   production: false,
-  BACKEND_URL: 'http://localhost:3000'
+  BACKEND_URL: 'http://localhost:4200'
 }
