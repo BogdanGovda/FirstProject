@@ -1,0 +1,10 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/base';
+@import '../../shared/styles/mixins';
+
+.title{
+    font-size: 42px;
+    font-weight: 700;
+    color: $black;
+    border-top: 5px solid $primary;
+}

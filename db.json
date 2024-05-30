@@ -1,0 +1,186 @@
+{
+  "discount": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut ad. Sed vitae in commodi, voluptatem mollitia numquam alias incidunt nam, quis error exercitationem officia eum repellendus vel ad debitis nobis aut quisquam dolore veniam laudantium aliquam! Incidunt, unde doloremque.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fdiscount.jpg?alt=media&token=9d8c216e-1843-42f3-a208-bcc48ed7bab2",
+      "id": 1,
+      "name": "Новорічна акція"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Дитячий",
+      "path": "childish",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4290256.png?alt=media&token=840373da-b6c1-4bb1-b266-fe96d1a4765e",
+      "id": 4
+    },
+    {
+      "name": "Смарт-годиник",
+      "path": "smart",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F421016.png?alt=media&token=6da12271-764e-41c2-8b00-31c2b995235a",
+      "id": 5
+    },
+    {
+      "name": "Фітнес-Браслет",
+      "path": "fitness",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fpng-transparent-fitband-sport-watch-fitness-diet-icon.png?alt=media&token=63c7754f-abd3-4fe0-bc5b-b5f4585de005",
+      "id": 6
+    },
+    {
+      "name": "Спортивний",
+      "path": "sporty",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fimages.png?alt=media&token=3adb129d-2452-409d-80e3-e071ba6ba9d2",
+      "id": 7
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "name": "Фітнес-Браслет",
+        "path": "fitness",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fpng-transparent-fitband-sport-watch-fitness-diet-icon.png?alt=media&token=63c7754f-abd3-4fe0-bc5b-b5f4585de005",
+        "id": 6
+      },
+      "name": "Смарт-годинник Apple Watch Series 9 GPS 45mm Midnight Aluminum Case w. Midnight S. Band - M/L (MR9A3)",
+      "path": "1",
+      "description": "Характеристики Apple Watch Series 9 GPS 45mm Midnight Aluminum Case w. Midnight S. Band - M/L (MR9A3) та комплектацію товару виробник може змінити без повідомлення. Перевірте специфікацію (характеристики) товару безпосередньо на сайті обраного магазину перед придбанням (замовленням).",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F465465465456.jpg?alt=media&token=a77f82bc-fd9c-4f43-ace3-cc6a35029704",
+      "price": 14600,
+      "matrix": "\tWatch Series 9 GPS",
+      "display": "OLED",
+      "memory": " 64 ГБ",
+      "bluetooth": " + (5.3)",
+      "chargingMethod": "\tМагнітний з'єднувач",
+      "material": " алюміній",
+      "produced": "китай",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "Дитячий",
+        "path": "childish",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4290256.png?alt=media&token=840373da-b6c1-4bb1-b266-fe96d1a4765e",
+        "id": 4
+      },
+      "name": "Дитячий розумний годинник XO H100 GPS Kids Watch Pink",
+      "path": "Child1",
+      "description": " Характеристики XO H100 GPS Kids Watch Pink та комплектацію товару виробник може змінити без повідомлення. Перевірте специфікацію (характеристики) товару безпосередньо на сайті обраного магазину перед придбанням (замовленням).",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4415708165.jpg?alt=media&token=7e731e1f-a259-45c8-a8cc-851cccbed8e4",
+      "price": 689,
+      "matrix": "\tXO",
+      "display": " TFT LCD",
+      "memory": " 32ГБ",
+      "bluetooth": " + (4.2)",
+      "chargingMethod": " 400",
+      "material": "Пластик",
+      "produced": "Іспанія",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": {
+        "name": "Смарт-годиник",
+        "path": "smart",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F421016.png?alt=media&token=6da12271-764e-41c2-8b00-31c2b995235a",
+        "id": 5
+      },
+      "name": "Смарт-годинник Xiaomi Redmi Watch 4 Obsidian Black",
+      "path": "smart1",
+      "description": "Характеристики Xiaomi Redmi Watch 4 Obsidian Black та комплектацію товару виробник може змінити без повідомлення. Перевірте специфікацію (характеристики) товару безпосередньо на сайті обраного магазину перед придбанням (замовленням).",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4381536945.jpg?alt=media&token=52a9ce6e-66d4-48c6-adbb-e2a6f7c071d6",
+      "price": 3240,
+      "matrix": "AMOLED",
+      "display": "OLED",
+      "memory": "64 ГБ",
+      "bluetooth": " + (5.2)",
+      "chargingMethod": "Магнітний з'єднувач",
+      "material": "Алюміній",
+      "produced": "Китай",
+      "count": 1,
+      "id": 4
+    },
+    {
+      "category": {
+        "name": "Спортивний",
+        "path": "sporty",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fimages.png?alt=media&token=3adb129d-2452-409d-80e3-e071ba6ba9d2",
+        "id": 7
+      },
+      "name": "Спортивний годинник Polar Pacer Night Black (900102174)",
+      "path": "sport1",
+      "description": " Характеристики Polar Pacer Night Black (900102174) та комплектацію товару виробник може змінити без повідомлення. Перевірте специфікацію (характеристики) товару безпосередньо на сайті обраного магазину перед придбанням (замовленням).",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4238966845.jpg?alt=media&token=3e646bd4-9e03-49ee-81df-ce9d3ca1f439",
+      "price": 6582,
+      "matrix": "XO",
+      "display": " Трансфлективний (MiP)",
+      "memory": "64 ГБ",
+      "bluetooth": " + (5.1)",
+      "chargingMethod": "Магнітний з'єднувач",
+      "material": "Пластик",
+      "produced": "Китай",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "name": "Смарт-годиник",
+        "path": "smart",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F421016.png?alt=media&token=6da12271-764e-41c2-8b00-31c2b995235a",
+        "id": 5
+      },
+      "name": "Смарт-годинник APPLE Watch SE 2022 44 Midnight Alum Midnight Sp/B (MNK03UL/A)",
+      "path": "smart3",
+      "description": "Характеристики Apple",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2Fimg_0_22161_1002_0_4_637982355954411275.webp?alt=media&token=71ca93c0-c3ec-417c-a092-a3b2af950066",
+      "price": 10999,
+      "matrix": "Watch Series 9 GPS",
+      "display": "OLED",
+      "memory": " 64 ГБ",
+      "bluetooth": " + (5.3)",
+      "chargingMethod": "Магнітний з'єднувач",
+      "material": "метал",
+      "produced": "Китай",
+      "count": 1,
+      "id": 6
+    },
+    {
+      "category": {
+        "name": "Смарт-годиник",
+        "path": "smart",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F421016.png?alt=media&token=6da12271-764e-41c2-8b00-31c2b995235a",
+        "id": 5
+      },
+      "name": "Фітнес-браслет Samsung Galaxy Fit3 Gray (SM-R390NZAA)",
+      "path": "smart4",
+      "description": "Характеристики Apple ...",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/shop-9c4dd.appspot.com/o/images%2F4566223885.jpg?alt=media&token=00aea55a-f6d3-43be-acbf-28c6d476997d",
+      "price": 2085,
+      "matrix": "Watch Series 9 GPS",
+      "display": "OLED",
+      "memory": " 64 ГБ",
+      "bluetooth": " + (5.3)",
+      "chargingMethod": "Магнітний з'єднувач",
+      "material": " алюміній",
+      "produced": "Китай",
+      "count": 1,
+      "id": 7
+    }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "qwerty123",
+      "fullName": "Bob",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "qwerty123",
+      "fullName": "Bob",
+      "role": "USER"
+    }
+  ]
+}

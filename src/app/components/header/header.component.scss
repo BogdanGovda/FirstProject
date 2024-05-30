@@ -1,0 +1,189 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.navbar-nav .nav-item .border-active {
+    box-shadow: 0px 0px 0px 1px white;
+    border-radius: 7px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.checkout {
+    &__empty{
+        &_banner{
+            @include flex-center;
+            flex-direction: column;
+        }
+      
+    }
+
+    &__wrapper {
+        
+        position: absolute;
+        top: 95px;
+        right: 0;
+        width: 48%;
+        z-index: 2;
+    }
+    
+   
+    &__main {
+        
+        &_products {
+            width: 100%;
+            background: $white;;
+            max-height: 260px;
+            overflow: scroll;
+        
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+    
+    &__product {
+        
+        &_block {
+            @include flex-between;
+            border-top: 1px solid lightgray;
+            padding: 10px 20px;
+        }
+
+        &_image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+      
+
+        &_count {
+            width: 120px;
+            height: 46px;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            @include flex-between;
+            padding: 0 4px;
+        }
+
+        &_price {
+            @include flex-center;
+            gap: 6px;
+        }
+
+        &_bold {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &_delete {
+            height: 18px;
+            cursor: pointer;
+        }
+    }
+
+    &__footer {
+        width: 100%;
+        background: $primary;
+        background-image: url('https://monosushi.com.ua/wp-content/themes/monosushi/img/bg-monosushi-logo.svg');
+        background-repeat: repeat;
+        background-position: 0 0 190px -52px;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        @include flex-between;
+
+        &_bold {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        &_text {
+            font-size: 18px;
+            color: $black;
+        }
+
+        &_button {
+            width: 248px;
+            height: 56px;
+            background: $white;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .4s;
+
+            &:hover {
+                background: none;
+                border-color: $white;
+            }
+        }
+    }
+
+    &__image {
+
+        &_wrapper {
+            width: 120px;
+            height: 82px;
+        }
+    }
+
+    &__text {
+
+        &_wrapper {
+            width: 200px;
+        }
+    }
+
+    &__price {
+
+        &_wrapper {
+            width: 40px;
+        }
+    }
+}
+.basket {
+    cursor: pointer;
+
+    &_items {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        &_count {
+            margin-left: 5px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            // background: $white;
+            color: var(--bs-nav-link-hover-color);
+            border-radius: 50%;
+            @include flex-center;
+        }
+
+     
+    }
+
+    &_count {
+        @include flex-center;
+
+        gap: 4px;
+
+        &_item {
+            font-weight: 700;
+            color:  var(--bs-nav-link-color);
+            font-size: 18px;
+        }
+
+        &_text {
+            color:  var(--bs-nav-link-color);
+            font-size: 18px;
+        }
+    }
+}

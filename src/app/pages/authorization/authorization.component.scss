@@ -1,0 +1,13 @@
+@import '../../shared/styles/mixins';
+.center{
+    @include flex-center;
+}
+.goRegistration{
+    color: rgba(128, 128, 128, 0.982);
+    @include flex-center;
+    font-size: 13px;
+    cursor: pointer;
+}
+.row{
+    --bs-gutter-x: -0.5rem;
+}

@@ -1,0 +1,88 @@
+
+<div class="orders__wrapper">
+    <div class="orders__table">
+        <table class="table">
+            <tr class="table__header">
+                <th class="header table__item">№ замовлення</th>
+                <th class="header table__item">Адреса</th>
+                <th class="header table__item">Замовлено</th>
+                <th class="header table__item">Номер телефону</th>
+                <th class="header table__item">Сума</th>
+                <th class="header table__item">Статус</th>
+                <th class="header table__item"> Процес</th>
+            </tr>
+            <tbody class="order__wrapper">
+                <tr class="table__main" *ngFor="let buy of allBuys;let i = index">
+                    <td class="main__order table__item">№ {{i+1}}</td>
+                    <td class="main__address table__item">
+                       {{buy.address}}
+                    </td>
+                    <td class="main__address table__item">
+                        <button type="button" class="btn btn-outline-secondary" (click)="showOrder(buy.order)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          Переглянути
+                        </button>
+                      </td>
+                    <td class="main__address table__item">
+                        {{buy.phone_number}}
+                    </td>
+                    <td class="main__total table__item">
+                        <p class="main__total_text"><span class="total__text_bold">{{buy.totalPrice}}</span>грн</p>
+                    </td>
+                    <td class="main__status table__item">
+                        <li *ngIf="buy.progress" class="status__list list__done">
+                            <a class="status__list_done">Статус</a>
+                        </li> <li class="status__list list__no" *ngIf="!buy.progress">
+                            <a class="status__list_no">Статус</a>
+                        </li>
+
+                    </td>
+                    <td>
+                        <div style="display: flex;">
+                            <button class="btn btn-outline-success me-1" (click)="successOrder(buy, buy.id)">Почати обробку</button>
+                            <button class="btn btn-outline-danger" (click)="deleteBuy(buy.id)">Відхилити</button>
+
+                        </div>
+                    </td>
+                </tr>
+              
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Замовлено</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{товари}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Замовлено</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="selectedOrderIndex !== null">
+              <div *ngFor="let items of selectedOrderIndex; let i = index">
+                <p>{{ items.name }} - {{items.quantity}} шт.</p>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+        </div>
+      </div>
+    </div>
+  </div>

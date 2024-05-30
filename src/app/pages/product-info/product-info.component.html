@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="product__wrapper">
+        <div class="product__info_item">
+            <div class="product__image_wrapper">
+                <img class="product__image_item" [src]="product?.imagePath" alt="">
+            </div>
+            <div class="product__desc_wrapper">
+                <h2 class="product__desc_title">{{ product?.name }}</h2>
+                
+                   
+                      <p class="fs-3">Тип матриці: <span class="fs-4">{{product?.matrix}}</span></p>
+                      <p class="fs-3">Розмір дісплея: <span class="fs-4">{{product?.display}}</span></p>
+                      <p class="fs-3">Память: <span class="fs-4">{{product?.memory}}</span></p>
+                      <p class="fs-3">Тип зарядки: <span class="fs-4">{{product?.chargingMethod}}</span></p>
+                      <p class="fs-3">Матеріал корпуса: <span class="fs-4">{{product?.material}}</span></p>
+                      <p class="fs-3">Bluetooth: <span class="fs-4">{{product?.bluetooth}}</span></p>
+                      <p class="fs-3">Вироблено: <span class="fs-4">{{product?.produced}}</span></p>
+                   
+               
+               
+                  
+                  
+                <div class="product__desc_info">
+                    <div class="product__desc_sum">
+                        <p class="desc__sum_text"><span class="desc__sum_item">{{ product?.price }}</span> грн</p>
+                    </div>
+                    <div class="product__desc_count">
+                        <button  class="desc__count_minus desc__count_btn"  (click)="countOfProduct(product, false)">-</button>
+                        <span class="desc__count_text">{{ product?.count }}</span>
+                        <button  class="desc__count_plus desc__count_btn" (click)="countOfProduct(product, true)">+</button>
+                    </div>
+                    <div class="product__desc_basket">
+                        <button  class="desc__basket_button" type="button" (click)="addToBasket(product)">Замовити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/base';
+@import '../../shared/styles/mixins';
+
+.orders {
+
+    &__wrapper {
+        width: 100%;
+    }
+
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    &__header {
+        width: 100%;
+        border-bottom: 2px solid $primary;
+    }
+
+    &__item {
+        padding: 30px 0;
+        color: $black;
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    &__main {
+        border-bottom: 2px solid lightgray;
+    }
+}
+.status {
+
+    &__list {
+
+        &_done {
+            color: rgb(0, 167, 0);
+        }
+        &_no{
+            color: red;
+        }
+        
+        &_repeat {
+            color: rgb(106, 201, 236);
+        }
+    }
+}
+.list__done {
+    color: rgb(0, 167, 0);
+    list-style-type: disc;
+}
+.list__no{
+    color: red;
+    list-style-type: disc;
+}
+.header {
+
+    &__order {
+        width: 20%;
+    }
+
+    &__date {
+        width: 22%;
+    }
+
+    &__address {
+        width: 20%;
+    }
+
+    &__total {
+        width: 15%;
+    }
+
+    &__status {
+        width: 30%;
+    }
+}

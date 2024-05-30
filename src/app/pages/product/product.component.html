@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="product__main_wrapper">
+        <div class="product__card" *ngFor="let product of userProducts" style="border: 1px solid black;">
+            <div class="card__image_wrapper" [routerLink]="['/product', product.category.path, product.id]">
+                <img  src="{{product.imagePath}}" alt="" class="product__card_image">
+            </div>
+            <div class="card__info_wrapper">
+                <h3  class="card__info_title">
+                    {{ product.name | slice:0:22 }}
+                    <span *ngIf="product.name.length > 22">...</span>
+                </h3>
+                <div class="card__info_desc">
+                    <p class="info__desc_ing">
+                        {{ product.description | slice:0:30 }}
+                        <span *ngIf="product.description.length > 30">...</span>
+                    
+                    <h4 class="info__desc_weight">{{ product.produced }}</h4>
+                    
+                </div>
+                <div class="card__info_order">
+                    <p class="info__order_price"><span class="order__price_bold">{{product.price}}</span> грн</p>
+                    <div class="info__order_count">
+                        <button class="order__count_minus order__count_btn" (click)="countOfProduct(product, false)">-</button>
+                        <span class="order__count_text">{{ product.count }}</span>
+                        <button class="order__count_plus order__count_btn" (click)="countOfProduct(product, true)">+</button>
+                    </div>
+                    <button class="info__order_button" type="button" (click)="addProductToBasket(product)">Замовити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

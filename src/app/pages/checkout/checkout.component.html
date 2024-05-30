@@ -1,0 +1,110 @@
+<div class="container mt-3 mb-3">
+    <div class="row panel panel-info">
+        <div class="col-6 border border-light-subtle pb-2 pt-3">
+           
+            <div class="px-2">
+                <div class="panel panel-info">
+                    <form class="panel-body" [formGroup]="orderForm">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <h4 style="text-align: center;">Доставка</h4>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Країна:</strong></div>
+                            <div class="col-md-12">
+                                <input formControlName="country" type="text" class="form-control" name="country" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: flex;">
+                            <div class="col-md-6 col-xs-12">
+                                <strong>Імя:</strong>
+                                <input formControlName="first_name" type="text" name="first_name" class="form-control" value="" />
+                            </div>
+                            <div class="span1"></div>
+                            <div class="col-md-6 col-xs-12">
+                                <strong>Фамілія:</strong>
+                                <input formControlName="last_name" type="text" name="last_name" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <strong>Доставка:</strong>
+                        <div class="form-group" style="display: flex;">
+                            <div class="col-md-6">
+                                <label for="radio1" class="me-2">НоваПошта</label>
+                                <input type="radio" id="radio1" name="options" value="1" checked><br>
+                              </div>
+                            <div class="col-md-6">
+                                <label for="radio2" class="me-2">Укрпошта (тимчасово не доступно)</label>
+                                <input type="radio" id="radio2" name="options" value="2" disabled><br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Спосіб оплати:</strong></div>
+                            <div class="col-md-12">
+                                <label for="radio1" class="me-2">При отриманні</label>
+                                <input type="radio" id="radio4" name="optionss" value="3" checked  class="me-3">
+                                <label for="radio2" class="me-2">Передоплата</label>
+                                <input type="radio" id="radio3" name="optionss" value="4" disabled><br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Адреса Нової Пошти:</strong></div>
+                            <div class="col-md-12">
+                                <input formControlName="address" type="text" name="address" class="form-control" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Місто:</strong></div>
+                            <div class="col-md-12">
+                                <input formControlName="city" type="text" name="city" class="form-control" value="" />
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <div class="col-md-12"><strong>Номер телефону:</strong></div>
+                            <div class="col-md-12"><input formControlName="phone_number" type="text" name="phone_number" class="form-control" value="" /></div>
+                        </div>
+                     
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 border border-light-subtle pb-2 pt-3">
+         <div class=" px-2">
+             <div class="panel panel-info">
+                 <h4 class="text-center">
+                     Ваше замовлення
+                 </h4>
+                 <div class="panel-body">
+                     <div class="form-group mb-2" *ngFor="let item of totalItems; let i = index" style="display: flex;" >
+                         <div class="col-sm-3 col-xs-3">
+                             <img class="img-responsive" width="100px" height="90px" src="{{item.imagePath}}" />
+                         </div>
+                         <div class="col-sm-6 col-xs-6">
+                             <div><h6>{{item.name}}</h6></div>
+                             <div><h6>Кількість: <span>{{item.quantity}}</span></h6></div>
+                             <div>
+                                 <h6>{{item.price}}<span>грн</span></h6>
+                             </div>
+                         </div>
+                     </div>
+                  
+                     
+                  
+                     <div class="form-group"><hr /></div>
+                     <div class="form-group">
+                         <div class="col-xs-12">
+                             <strong>До оплати</strong>
+                             <div class="pull-right"><span>{{totalOrder?.totalPrice}}</span><span>грн</span></div>
+                             <button [routerLink]="[ '/' ]" class="btn btn-outline-success" (click)="show()">Замовити</button>
+                             <!-- <button (click)="show()">test</button> -->
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+       
+        </div>
+    </div>
+        
+</div>

@@ -1,0 +1,130 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a [routerLink]="[ '/' ]" class="navbar-brand" href="#">FitShop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a [routerLink]="[ '/discount' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                 Акції
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="[ '/product/smart' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                  Смарт-Годиник
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="[ '/product/fitness' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                  Фітнес-Браслет
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="[ '/product/childish' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                  Дитячий
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="[ '/product/sporty' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                  Спортивний
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Інформація
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" [routerLink]="[ '/delivery' ]" routerLinkActive="active border-active" >
+                      Доставка та оплата
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" [routerLink]="[ '/about' ]" routerLinkActive="active border-active" >
+                      Про нас
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" [routerLink]="[ '/contacts' ]" routerLinkActive="active border-active" >
+                      Контакти
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
+    <div style="display: flex;position: absolute;
+    right: 0;">
+      <li class="basket_wrapper me-3">
+        <a (click)="openBasketModal()" class="basket">
+            <div class="basket_items">
+                <img height="20px" class="basket_items_img" src="assets\shopping-basket.svg" alt="" class="basket_img">
+
+            </div>
+            <div class="basket_count">
+                <b class="basket_count_item">{{ total }}</b>
+                <span class="basket_count_text">грн</span>
+            </div>
+        </a>
+    </li>
+    <li class="nav-item me-2" *ngIf="!isLogin">
+      <a [routerLink]="[ '/auth' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page">
+       Логін
+      </a>
+    </li>
+      <li class="nav-item me-2" *ngIf="isLogin">
+        <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active border-active" class="nav-link " aria-current="page">
+         {{loginPage}}
+        </a>
+      </li>
+    </div>
+
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+</header>
+
+<ng-container *ngIf="isBasketOpen">
+  <div class="checkout__wrapper">
+      <div class="checkout__block">
+          <div class="checkout__main_products">
+              <div class="checkout__empty_wrapper" *ngIf="basket.length === 0">
+                  <div class="checkout__empty_banner">
+                      <img src="/assets/box.png" alt="" width="50" height="50" class="checkout__empty_image">
+                      <h3 class="checkout__empty_title">Кошик порожній</h3>
+                     
+                  </div>
+              </div>
+              <div class="checkout__product_block" *ngFor="let productBasket of basket; index as i">
+                  <div class="checkout__image_wrapper">
+                      <img [src]="productBasket.imagePath" alt="" class="checkout__product_image">
+                  </div>
+                  <div class="checkout__text_wrapper">
+                      <h3 class="checkout__product_title">{{  productBasket.name | slice:0:20 }}</h3>
+                  </div>
+                  <div class="checkout__product_count">
+                      <button (click)="countOfProduct(productBasket, false)" class="product__count_plus product__count_btn">-</button>
+                      <span class="product__count_text">{{ productBasket.count }}</span>
+                      <button (click)="countOfProduct(productBasket, true)" class="product__count_plus product__count_btn">+</button>
+                  </div>
+                  <div class="checkout__price_wrapper">
+                      <p class="checkout__product_price"><span class="checkout__product_bold">{{ productBasket.price * productBasket.count }}</span> грн</p>
+                  </div>
+                  <img (click)="deleteProductFromBasket(i)" src="https://static-00.iconduck.com/assets.00/delete-icon-1864x2048-bp2i0gor.png" alt="" class="checkout__product_delete">
+              </div>
+          </div>
+          <div class="checkout__footer">
+              <p class="checkout__footer_text">Сума: <span class="checkout__footer_bold">{{ total }}</span> грн</p>
+              <button [routerLink]="[ '/checkout' ]" class="checkout__footer_button" type="button" (click)="placeAnOrder()">Оформити замовлення</button>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+<div (click)="openBasketModal()" *ngIf="isBasketOpen" class="overlay"></div>

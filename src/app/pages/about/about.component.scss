@@ -1,0 +1,95 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/base';
+@import '../../shared/styles/mixins';
+
+
+.about {
+
+		&__main {
+
+			&_title {
+                font-size: 42px;
+                font-weight: 700;
+                color: $black;
+                border-top: 5px solid $primary;
+			}
+
+			&_text {
+                width: 67%;
+                margin-top: 30px;
+                line-height: 26px;
+                color: $black;
+			}
+
+			&_get {
+                margin-top: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 60px;
+			}
+
+			&_happy {
+                margin-top: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 60px;
+			}
+		}
+
+		&__mono {
+
+			&_title {
+                margin-top: 40px;
+                font-size: 34px;
+                font-weight: 700;
+                color: $black;
+			}
+
+			&_list {
+                margin: 30px 0 0 20px;
+			}
+		}
+}
+.container {
+    max-width: 1200px;
+    margin: 50px auto 100px;
+}
+
+.mono {
+
+		&__list {
+
+			&_item {
+                color: $black;
+                list-style-type: disc;
+                margin-top: 10px;
+			}
+		}
+}
+.main {
+
+		&__get {
+
+			&_image {
+                border-radius: 10px;
+			}
+		}
+
+		&__happy {
+
+			&_image {
+                border-radius: 10px;
+			}
+		}
+
+        &__info {
+
+            &_text {
+                @include flex-center;
+            }
+        }
+}
+
+

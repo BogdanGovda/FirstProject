@@ -1,0 +1,160 @@
+<div class="row">
+    <div class="col-12 border border-light-subtle">
+        <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+            <div class="mb-3">
+              <label class="form-label">Категорія</label>
+              <select class="form-select mt-2" aria-label="Default select example"  formControlName="category" #category>
+                <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.name}}</option>
+           
+              </select>
+            </div>
+            <div class="row">
+              <div class="col mb-3">
+                <label for="name" class="form-label">Імя</label>
+                <input formControlName="name" name="name" id="name" class="form-control" placeholder="Імя..">
+              </div>
+              <div class="col mb-3">
+                <label for="path" class="form-label">Шлях</label>
+                <input formControlName="path" name="path" type="text" class="form-control" id="path">
+              </div>
+
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Опис</label>
+              <textarea formControlName="description" name="description" id="description" class="form-control" placeholder="Опис.."></textarea>
+            </div>
+            <div class="mb-3 d-flex">
+
+              <div class="mb-3">
+                <label for="matrix" class="form-label">Тип матриці</label>
+                <input formControlName="matrix" name="matrix" type="text" class="form-control" id="matrix">
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Ціна</label>
+                <input formControlName="price" name="price" type="number" class="form-control" id="price">
+              </div>
+              <div class="mb-3">
+                <label for="display" class="form-label">Дісплей</label>
+                <input formControlName="display" name="display" type="text" class="form-control" id="display">
+              </div>
+              <div class="mb-3">
+                <label for="memory" class="form-label">Память</label>
+                <input formControlName="memory" name="memory" type="text" class="form-control" id="memory">
+              </div>
+              <div class="mb-3">
+                <label for="bluetooth" class="form-label">Bluetooth</label>
+                <input formControlName="bluetooth" name="bluetooth" type="text" class="form-control" id="bluetooth">
+              </div>
+              <div class="mb-3">
+                <label for="chargingMethod" class="form-label">Зарядка</label>
+                <input formControlName="chargingMethod" name="chargingMethod" type="text" class="form-control" id="chargingMethod">
+              </div>
+              <div class="mb-3">
+                <label for="material" class="form-label">Матеріал</label>
+                <input formControlName="material" name="material" type="text" class="form-control" id="material">
+              </div>
+              <div class="mb-3">
+                <label for="produced" class="form-label">Вироблено</label>
+                <input formControlName="produced" name="produced" type="text" class="form-control" id="produced">
+              </div>
+            </div>
+            <ng-container *ngIf="!isUploaded">
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Зображення</label>
+                <input class="form-control" type="file" id="formFile" (change)="upload($event)">
+              </div>
+              <div class="progress mb-2" role="progressbar" aria-label="Success striped example"  aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped bg-success" [style.width.%]="uploadPercent"></div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="isUploaded">
+              <img [src]="valueByControle('imagePath')" alt="" width="100px">
+              <button class="btn btn-danger" type="button" (click)="deleteImage()">Видалити</button>
+            </ng-container>
+            
+          
+            <div class="mb-2">
+              <button  [disabled]="productForm.invalid" type="submit" class="btn btn-success" >{{editStatus ? "Зберегти" : "Добавити"}}</button>
+            </div>
+
+          </form>
+    </div>
+    <div class="col-12 mt-3 border border-light-subtle">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Категорія</th>
+                <th scope="col">Імя</th>
+                <th scope="col">Шлях</th>
+                <th scope="col">Зображення</th>
+                
+                <th scope="col">Ціна</th>
+
+                <th scope="col">Матриця</th>
+                <th scope="col">Дісплей</th>
+                <th scope="col">Память</th>
+                <th scope="col">Bluetooth</th>
+                <th scope="col">Зарядка</th>
+                <th scope="col">Матеріал</th>
+                <th scope="col">Вироблено</th>
+
+                <th scope="col">Дії</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of adminProduct; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{product.category.name}}</td>
+                    <td>{{product.name | slice:0:10}}</td>
+                    <td>{{product.path}}</td>
+                    <td><img [src]="product.imagePath" alt="" height="75px"></td>
+                  
+                   
+
+                    <td>{{product.price}}</td>
+
+                    <td>{{product.matrix}}</td>
+                    <td>{{product.display}}</td>
+                    <td>{{product.memory}}</td>
+                    <td>{{product.bluetooth}}</td>
+                    <td>{{product.chargingMethod}}</td>
+                    <td>{{product.material}}</td>
+                    <td>{{product.produced}}</td>
+
+
+                    <td>
+                        <button (click)="editProduct(product)" type="button" class="btn btn-warning me-2 ">Редагувати</button>
+                      
+                        <button [disabled]="editStatus" (click)="deleteProduct(product)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                          Видалити
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div> 
+  
+
+
+
+  </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="confirmDeleteModal" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Підтвердити видалення</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Ви впевнені, що хочете видалити цей елемент?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+          <button type="button" class="btn btn-danger" (click)="confirmDelete()" data-bs-dismiss="modal">Підтвердити видалення</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,20 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/base';
+@import '../../shared/styles/mixins';
+.content{
+    display: flex;
+    &_item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.title{
+    font-size: 42px;
+    font-weight: 700;
+    color: $black;
+    border-top: 5px solid $primary;
+}

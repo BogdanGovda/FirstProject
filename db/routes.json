@@ -1,0 +1,5 @@
+{
+    "/discount/:id": {
+      "GET": "db/discounts.json"
+    }
+  }

@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-12 border border-light-subtle">
+        <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Імя</label>
+              <input formControlName="name" name="name" id="name" class="form-control" placeholder="Імя..">
+            
+
+            </div>
+            <div class="mb-3">
+              <label for="path" class="form-label">Шлях</label>
+              <input formControlName="path" name="path" type="text" class="form-control" id="path">
+         
+            </div>
+            <ng-container *ngIf="!isUploaded">
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Зображення</label>
+                <input class="form-control" type="file" id="formFile" (change)="upload($event)">
+              </div>
+              <div class="progress mb-2" role="progressbar" aria-label="Success striped example"  aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped bg-success" [style.width.%]="uploadPercent"></div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="isUploaded">
+              <img [src]="valueByControle('imagePath')" alt="" width="100px">
+              <button class="btn btn-danger" type="button" (click)="deleteImage()">Видалити</button>
+            </ng-container>
+            
+          
+            <div class="mb-2">
+              <button  [disabled]="categoryForm.invalid" type="submit" class="btn btn-success" >{{editStatus ? "Зберегти" : "Добавити"}}</button>
+            </div>
+
+          </form>
+    </div>
+    <div class="col-12 mt-3 border border-light-subtle">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Імя</th>
+                <th>path</th>
+                <th scope="col">Зображення</th>
+                <th scope="col">Дії</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of adminCategory; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.path}}</td>
+
+                    <td><img [src]="category.imagePath" alt="" height="75px"></td>
+                    <td>
+                        <button (click)="editCategory(category)" type="button" class="btn btn-warning me-2 ">Редагувати</button>
+                      
+                        <button [disabled]="editStatus" (click)="deleteCategory(category)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                          Видалити
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+    </div> 
+  
+
+
+
+  </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="confirmDeleteModal" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Підтвердити видалення</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Ви впевнені, що хочете видалити цей елемент?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+          <button type="button" class="btn btn-danger" (click)="confirmDelete()" data-bs-dismiss="modal">Підтвердити видалення</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,121 @@
+<div class="box">
+    <section class="cabinet__section">
+        <div class="container">
+            <div class="wrapper">
+                <div class="cabinet__nav">
+                    <div class="cabinet__wrapper_items">
+                        <button [class.active]="isPersonalDataOpen" (click)="togglePersonalData()" class="cabinet__item_btn" type="button">Особисті дані</button>
+                        <button [class.active]="isHistoryOrdersOpen" (click)="toggleHistoryOrders()" class="cabinet__item_btn" type="button">Історія замовлень</button>
+                        <button [class.active]="isChangingPasswordOpen" (click)="toggleChangePassword()" class="cabinet__item_btn" type="button">Зміна паролю</button>
+                        <button (click)="logout()" class="cabinet__item_btn" type="button">Вийти з акаунту</button>
+                    </div>
+                </div>
+                <div class="cabinet__block">
+                  
+                    <ng-container *ngIf="isPersonalDataOpen">
+                        <form [formGroup]="editForm">
+                            <div class="cabinet__info">
+                                <div class="cabinet__block_header">
+                                    <div class="cabinet__header_inner">1</div>
+                                    <h2 class="block__header_title">Особисті дані</h2>
+                                </div>
+                                <div class="cabinet__block_main">
+                                    <div class="main__fullname_wrapper">
+                                        <div class="main__fullname_wrapper_item">
+                                            <p>Імя</p>
+                                            <input formControlName="firstName" type="text" [value]="currentUser.firstName" class="main__firstname main__input">
+                                        </div>
+                                        <div class="main__fullname_wrapper_item">
+                                            <p>Фамілія</p>
+                                            <input formControlName="lastName" type="text" [value]="currentUser.lastName" class="main__lastname main__input">
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="main__phone_wrapper">
+                                        <p>Номер телефону</p>
+                                        <input formControlName="phone" type="number" [value]="currentUser.phone" class="main__phone main__input">
+                                    </div>
+                                    <div class="main__email_wrapper">
+                                        <input formControlName="email" type="email" [value]="currentUser.email" class="main__email main__input">
+                                    </div>
+                                </div>
+                   
+                                <div class="cabinet__block_footer">
+                                    <button (click)="editPersonalData()" class="block__footer_save" type="button">Зберегти зміни</button>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-container>
+                    <!-- history orders -->
+                    <ng-container *ngIf="isHistoryOrdersOpen">
+                        <div class="orders__wrapper">
+                            <div class="orders__table">
+                                <table class="table">
+                                    <tr class="table__header">
+                                        <th class="header__order table__item">№ замовлення</th>
+                                        <th class="header__date table__item">Контактний номер</th>
+                                        <th class="header__address table__item">Адреса</th>
+                                        <th class="header__total table__item">Сума</th>
+                                        <th class="header__status table__item">Статус</th>
+                                        <th class="header__action table__item">Дії</th>
+
+
+                                    </tr>
+                                    <tbody class="order__wrapper" *ngFor="let buy of buys; let i = index ">
+                                        <tr class="table__main">
+                                            <td class="main__order table__item">№ {{i+1}}</td>
+                                            <td class="main__date table__item">{{buy.phone_number}}</td>
+                                            <td class="main__address table__item">
+                                               {{buy.address}}
+                                            </td>
+                                            <td class="main__total table__item">
+                                                <p class="main__total_text"><span class="total__text_bold">{{buy.totalPrice}}</span>грн</p>
+                                            </td>
+                                            <td class="main__status table__item">
+                                                
+                                                    <p *ngIf="!buy.progress" class="status__list_progress">В обробці</p>
+
+                                                    <p *ngIf="buy.progress" class="status__list_done">Виконано</p>
+                                          
+                                               
+                                            </td>
+                                            <td class="main__action table__item">
+                                               
+                                                    <button (click)="deleteBuy(i)" class="btn btn-outline-danger">Відмінити</button>
+                                                
+                                            </td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="isChangingPasswordOpen">
+                        <div class="password__wrapper">
+                            <div class="password__header">
+                                <h2 class="password__header_title">Зміна паролю</h2>
+                            </div>
+                            <div class="password__main">
+                                <div class="password__current_wrapper">
+                                    <input type="password" class="current__password_input main__input" placeholder="Ваш поточний пароль">
+                                </div>
+                                <div class="password__new_wrapper">
+                                    <input type="password" class="new__password_input main__input" placeholder="Новий пароль">
+                                </div>
+                                <div class="password__repeat_wrapper">
+                                    <input type="password" class="repeat__password_input main__input" placeholder="Повторіть пароль">
+                                </div>
+                            </div>
+                            <div class="password__footer">
+                                <button class="password__footer_exit" type="button">Скасувати</button>
+                                <button class="password__footer_save" type="button">Зберегти зміни</button>
+                            </div>
+                        </div>
+                    </ng-container>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

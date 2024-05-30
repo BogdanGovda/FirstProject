@@ -1,0 +1,387 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/base';
+@import '../../shared/styles/mixins';
+
+
+.cabinet {
+
+	
+
+		&__wrapper {
+
+			&_items {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+			}
+		}
+
+		&__item {
+
+			&_btn {
+                width: 200px;
+                height: 60px;
+                background: none;
+                border: none;
+                font-size: 16px;
+                color: $black;
+                cursor: pointer;
+                border-top: 1px solid rgb(238, 238, 238);
+                border-right: 1px solid rgb(238, 238, 238);
+                border-bottom: 1px solid rgb(238, 238, 238);
+			}
+		}
+
+		&__block {
+            width: 74%;
+
+			&_header {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+			}
+
+			&_main {
+                margin-top: 20px;
+                @include flex-center;
+                flex-direction: column;
+                gap: 20px;
+			}
+
+			&_footer {
+                width: 100%;
+                @include flex-between;
+                margin-top: 40px;
+			}
+		}
+
+	
+
+		&__header {
+
+			&_inner {
+                width: 26px;
+                height: 26px;
+                background: $primary;
+                border-radius: 4px;
+                color: $black;
+                font-weight: 700;
+                @include flex-center;
+			}
+		}
+
+		&__address {
+
+			&_wrapper {
+                margin-top: 40px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+			}
+
+			&_inner {
+                width: 26px;
+                height: 26px;
+                background: $primary;
+                border-radius: 4px;
+                color: $black;
+                font-weight: 700;
+                @include flex-center;
+			}
+		}
+}
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+}
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.block {
+
+		&__header {
+
+			&_title {
+                font-size: 22px;
+                font-weight: 700;
+			}
+		}
+
+
+		&__footer {
+
+			&_exit {
+                width: 260px;
+                height: 58px;
+                background: none;
+                border: 2px solid $primary;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 700;
+                color: $black;
+                text-transform: uppercase;
+                transition: .4s;
+                cursor: pointer;
+
+                &:hover {
+                    background: $primary;
+                }
+			}
+
+			&_save {
+                width: 260px;
+                height: 58px;
+                background: $primary;
+                border: 2px solid transparent;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 700;
+                color: $black;
+                text-transform: uppercase;
+                transition: .4s;
+                cursor: pointer;
+
+                &:hover {
+                    background: none;
+                    border-color: $primary;
+                }
+			}
+		}
+}
+.main {
+
+        &__input {
+            height: 58px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            color: $black;
+            padding: 0 20px;
+            font-size: 16px;
+            outline-color: $primary;
+        }
+
+		&__fullname {
+
+			&_wrapper {
+                width: 100%;
+                @include flex-between;
+			}
+		}
+
+	
+
+
+
+		&__phone {
+            width: 100%;
+
+			&_wrapper {
+                width: 100%;
+			}
+		}
+
+		&__email {
+            width: 100%;
+
+			&_wrapper {
+                width: 100%;
+			}
+		}
+}
+
+.active {
+    border: none;
+    border-top: 5px solid $primary;
+    font-weight: 700;
+    color: $black;
+}
+
+.orders {
+
+    &__wrapper {
+        width: 100%;
+    }
+
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    &__header {
+        width: 100%;
+        border-bottom: 2px solid $primary;
+    }
+
+    &__item {
+        padding: 30px 0;
+        color: $black;
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    &__main {
+        border-bottom: 2px solid lightgray;
+    }
+}
+.header {
+
+    &__order {
+        width: 20%;
+    }
+
+    &__date {
+        width: 22%;
+    }
+
+    &__address {
+        width: 20%;
+    }
+
+    &__total {
+        width: 15%;
+    }
+
+    &__status {
+        width: 30%;
+    }
+}
+.main {
+
+    &__order {
+        font-weight: 700;
+    }
+
+
+    &__status {
+        @include flex-between;
+    }
+}
+.total {
+
+    &__text {
+
+        &_bold {
+            font-weight: 700;
+        }
+    }
+}
+.status {
+
+    &__list {
+
+        &_done {
+            color: rgb(0, 167, 0);
+        }
+        
+        &_progress{
+            color: rgb(92, 92, 92);
+        }
+        
+    }
+}
+
+.list__done {
+    color: rgb(0, 167, 0);
+    list-style-type: disc;
+}
+.list__progress{
+    color: rgb(92, 92, 92);
+    list-style-type: disc;
+}
+
+.password {
+
+    &__wrapper {
+        width: 72%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__header {
+        width: 100%;
+
+    }
+
+    &__main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    &__footer {
+        width: 100%;
+        @include flex-between;
+
+        &_exit {
+            width: 260px;
+            height: 58px;
+            background: none;
+            border: 2px solid $primary;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: $black;
+            text-transform: uppercase;
+            transition: .4s;
+            cursor: pointer;
+
+            &:hover {
+                background: $primary;
+            }
+        }
+
+        &_save {
+            width: 260px;
+            height: 58px;
+            background: $primary;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: $black;
+            text-transform: uppercase;
+            transition: .4s;
+            cursor: pointer;
+
+            &:hover {
+                background: none;
+                border-color: $primary;
+            }
+        }
+    }
+}
+.current {
+
+    &__password {
+
+        &_input {
+            width: 100%;
+        }
+    }
+}
+.new {
+
+    &__password {
+
+        &_input {
+            width: 100%;
+        }
+    }
+}
+.repeat {
+
+    &__password {
+
+        &_input {
+            width: 100%;
+        }
+    }
+}
