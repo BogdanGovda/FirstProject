@@ -78,8 +78,8 @@ export class CheckoutComponent {
     order: this.totalItems,
     totalPrice: currentUserData.orders.totalPrice,
     progress: false,
-    id:currentUserData.uid
-    
+    userId:currentUserData.uid,
+    id: currentUserData.buys.length
     
   };
   if (currentUserData) {

@@ -23,7 +23,7 @@ export class HeaderComponent {
   public loginUrl = '';
   public loginPage = '';
   
-
+public adminCategory: Array<ICategoryResponse> = [];
   
 
 
@@ -35,10 +35,7 @@ export class HeaderComponent {
     private orderService: OrderService,
     private accountService: AccountService,
     private afs: Firestore,
-    
-    
-
-
+    private categoryServise: CategoryService,
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +44,13 @@ export class HeaderComponent {
     this.updateBasket();
     this.checkUserLogin();
     this.checkUpdatesUserLogin();
+    this.loadCategories()
+
+  }
+  loadCategories(): void{
+    this.categoryServise.getAllFirebase().subscribe(data => {
+      this.adminCategory = data as ICategoryResponse[];
+    })
 
   }
 
@@ -126,12 +130,12 @@ export class HeaderComponent {
       currentUserData.orders = order; 
       localStorage.setItem('currentUser', JSON.stringify(currentUserData));
       const docRef = doc(this.afs, 'users', currentUserData.uid);
-      try {
-        await updateDoc(docRef, { orders: currentUserData.orders });
-        console.log('Document successfully updated in Firestore.');
-      } catch (err) {
-        console.error('Error updating document:', err);
-      }
+      // try {
+      //   // await updateDoc(docRef, { orders: currentUserData.orders });
+      //   console.log('Document successfully updated in Firestore.');
+      // } catch (err) {
+      //   console.error('Error updating document:', err);
+      // }
     
       this.accountService.isUserLogin$.next(true);
     }

@@ -14,7 +14,7 @@
             </div>
 
             <div class="center mb-3">
-              <button *ngIf="!isLogin"  [disabled]="authForm.invalid" type="submit" class="btn btn-success" (click)="loginUser()" >Логін</button>
+              <button *ngIf="!isLogin" [disabled]="authForm.invalid" type="submit" class="btn btn-success" (click)="loginUser()" >Логін</button>
               <button *ngIf="isLogin"   [disabled]="authForm.invalid" type="submit" class="btn btn-success" (click)="registerUser()" >Реєстрація</button>
 
             </div>

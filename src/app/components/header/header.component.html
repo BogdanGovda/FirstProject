@@ -12,26 +12,14 @@
                  Акції
                 </a>
               </li>
-              <li class="nav-item">
-                <a [routerLink]="[ '/product/smart' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
-                  Смарт-Годиник
+              <li class="nav-item" *ngFor="let category of adminCategory; let i = index">
+                <a [routerLink]="[ '/product/', category.path ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
+                  {{category.name}}
                 </a>
               </li>
-              <li class="nav-item">
-                <a [routerLink]="[ '/product/fitness' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
-                  Фітнес-Браслет
-                </a>
-              </li>
-              <li class="nav-item">
-                <a [routerLink]="[ '/product/childish' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
-                  Дитячий
-                </a>
-              </li>
-              <li class="nav-item">
-                <a [routerLink]="[ '/product/sporty' ]" routerLinkActive="active border-active" class="nav-link " aria-current="page" href="#">
-                  Спортивний
-                </a>
-              </li>
+        
+        
+           
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -96,7 +84,7 @@
           <div class="checkout__main_products">
               <div class="checkout__empty_wrapper" *ngIf="basket.length === 0">
                   <div class="checkout__empty_banner">
-                      <img src="/assets/box.png" alt="" width="50" height="50" class="checkout__empty_image">
+                      <img src="./assets/box.png" alt="" width="50" height="50" class="checkout__empty_image">
                       <h3 class="checkout__empty_title">Кошик порожній</h3>
                      
                   </div>

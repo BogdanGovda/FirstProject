@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Firestore, collection, getDocs, getFirestore, query, where } from '@angular/fire/firestore';
+import { Firestore, collection, getDoc, getDocs, getFirestore, query, where } from '@angular/fire/firestore';
 import {doc, setDoc, updateDoc} from "@angular/fire/firestore";
 
 @Component({
@@ -48,9 +48,29 @@ export class AdminOrderComponent {
 
 
 
- async successOrder(buy: any, id: any) {
-  buy.progress = true;
+ async successOrder(buyId: any, userId: any) {
+  const db = getFirestore();
+  const userDocRef = doc(db, 'users', userId);
+  try {
+    const userDocInfo = await getDoc(userDocRef);
+    
+    if (userDocInfo.exists()) {
+      const userData = userDocInfo.data();
+      const buys = userData['buys'];
+      
+      const buyIndex = buys.findIndex(((buys: { id: any; }) => buys.id === buyId));
+      
+      if (buyIndex !== -1) {
+        buys[buyIndex].progress = true;
+        await updateDoc(userDocRef, { buys });
+      }
+    }
+  } catch (e) {
+    console.log("eror", e);
+  }
+    
 }
+
 async deleteBuy(buyId: string): Promise<void> {
 }
 

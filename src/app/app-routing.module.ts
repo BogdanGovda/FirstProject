@@ -24,7 +24,7 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { authGuard } from './shared/guards/auth/auth.guard';
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
-import { authUserGuard } from './shared/guards/auth/auth-user.guard';
+import { AuthUserGuard } from './shared/guards/auth/auth-user.guard';
 
 
 const routes: Routes = [
@@ -40,7 +40,7 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'auth', component: AuthorizationComponent},
-  {path: 'cabinet', component: CabinetComponent, canActivate: [authUserGuard]},
+  {path: 'cabinet', component: CabinetComponent},
 
   {path: 'admin', component: AdminComponent, canActivate: [authGuard] , children:[
     {path: '', pathMatch: 'full', component: AdminCategoryComponent},

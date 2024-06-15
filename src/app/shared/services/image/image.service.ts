@@ -40,5 +40,8 @@ export class ImageService {
       
     
   }
+  valueByControl(arg0: string): string | undefined {
+    throw new Error('Method not implemented.');
+  }
 
 }

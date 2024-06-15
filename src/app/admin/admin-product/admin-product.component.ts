@@ -155,6 +155,7 @@ export class AdminProductComponent {
       
     })
   }
+  
   valueByControle(control: string): string {
     return this.productForm.get(control)?.value;
   }
